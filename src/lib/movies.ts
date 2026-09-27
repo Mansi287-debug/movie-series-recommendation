@@ -1,0 +1,436 @@
+import type { Movie, Duration } from './types';
+
+const portrait = (id: string, w = 400, h = 600) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&fit=crop`;
+
+const landscape = (id: string, w = 1280, h = 720) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&fit=crop`;
+
+export const movies: Movie[] = [
+  // ── MOVIES (1–32) ──
+  {
+    id: 1, title: 'The Last Signal', year: '2024', genres: ['Sci-fi', 'Thriller'], rating: 8.7, duration: 134,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Focused'],
+    tagline: 'Some messages take longer to arrive than others.',
+    overview: 'When a deep-space radio engineer intercepts a transmission from a satellite that vanished three decades ago, she races to decode it before the signal goes dark forever. A taut, atmospheric thriller about isolation, obsession, and the distance between us.',
+    cast: ['Elena Marsh', 'Daniel Okafor', 'Priya Bhatt'], director: 'Maren Holt',
+    poster: portrait('11606021'), backdrop: landscape('1790556'), tag: 'Because you liked Dune',
+  },
+  {
+    id: 2, title: 'Neon Hearts', year: '2023', genres: ['Drama', 'Romance'], rating: 8.2, duration: 108,
+    media_type: 'movie', category: 'Movies', moods: ['Romantic', 'Relaxed'],
+    tagline: 'Two strangers. One city. A thousand lights between them.',
+    overview: 'A jazz pianist and a street photographer cross paths nightly in the glow of Tokyo\u2019s neon alleys. A tender portrait of connection in a city that never sleeps, and the courage it takes to stay.',
+    cast: ['Yuna Sato', 'Marco Ferreira', 'Aiko Tanaka'], director: 'Riku Nakamura',
+    poster: portrait('8271458'), backdrop: landscape('2927607'), tag: 'Perfect for tonight',
+  },
+  {
+    id: 3, title: 'The Quiet Hour', year: '2022', genres: ['Mystery', 'Drama'], rating: 8.5, duration: 116,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Surprised'],
+    tagline: 'Silence has a story to tell.',
+    overview: 'In a remote coastal village where the tide swallows the only road each night, a deaf journalist investigates the disappearance of three residents. Every silence hides a clue in this slow-burn mystery.',
+    cast: ['Clara Voss', 'Henrik Lund', 'Sofia Reyes'], director: 'Ingrid Ahlberg',
+    poster: portrait('7991325'), backdrop: landscape('7991499'), tag: 'Critically acclaimed',
+  },
+  {
+    id: 4, title: 'Midnight in Berlin', year: '2024', genres: ['Crime', 'Mystery'], rating: 7.9, duration: 122,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Focused'],
+    tagline: 'The city never forgets. Neither does she.',
+    overview: 'An art restorer uncovers a coded message beneath a 1940s painting, pulling her into a web of forgery, espionage, and a cold case that someone is still willing to kill for.',
+    cast: ['Greta Hofmann', 'Klaus Weber', 'Lena Fischer'], director: 'Thomas Bender',
+    poster: portrait('31208770'), backdrop: landscape('31208770'), tag: 'Trending now',
+  },
+  {
+    id: 5, title: 'After the Storm', year: '2023', genres: ['Drama'], rating: 8.0, duration: 96,
+    media_type: 'movie', category: 'Movies', moods: ['Relaxed', 'Romantic'],
+    tagline: 'Sometimes what washes ashore is exactly what you needed.',
+    overview: 'A widowed lighthouse keeper takes in a stranded traveler during a week-long storm. Two guarded people slowly lower their walls in this intimate, windswept character study.',
+    cast: ['James Calloway', 'Nina Ortega', 'Pieter de Vries'], director: 'Ada Linde',
+    poster: portrait('7991399'), backdrop: landscape('8271453'), tag: 'Hidden gem',
+  },
+  {
+    id: 6, title: 'Crimson Echo', year: '2024', genres: ['Horror', 'Thriller'], rating: 7.6, duration: 102,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Surprised'],
+    tagline: 'The sound was never in the house. It was in the family.',
+    overview: 'A sound designer inherits her childhood home and discovers the walls have been recording every conversation for decades. The last tape is dated three days in the future.',
+    cast: ['Mara Solis', 'Victor Chen', 'Hannah Brooks'], director: 'Eli Vasquez',
+    poster: portrait('28792993'), backdrop: landscape('7991501'), tag: 'New release',
+  },
+  {
+    id: 7, title: 'The Cartographer', year: '2022', genres: ['Adventure', 'Drama'], rating: 8.3, duration: 128,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Relaxed'],
+    tagline: 'Every map leaves something out.',
+    overview: 'A retired cartographer treks into uncharted Patagonian wilderness to find a valley his late wife described in her final letters. A meditation on grief, landscape, and the maps we draw for the people we love.',
+    cast: ['Alejandro Ruiz', 'Camille Dubois', 'Tomás Herrera'], director: 'Sofia Mendez',
+    poster: portrait('27583987'), backdrop: landscape('2927607'), tag: 'Editor\u2019s pick',
+  },
+  {
+    id: 8, title: 'Silent Frequency', year: '2023', genres: ['Sci-fi', 'Drama'], rating: 8.1, duration: 114,
+    media_type: 'movie', category: 'Movies', moods: ['Surprised', 'Focused'],
+    tagline: 'What if the silence was the message?',
+    overview: 'In a near-future where all communication is surveilled, a group of underground musicians encode rebellion into frequencies only teenagers can hear. A stylish, sound-driven dystopia.',
+    cast: ['Kai Nakamura', 'Zara Osei', 'Felix Ahmadi'], director: 'Yuki Tanaka',
+    poster: portrait('15079054'), backdrop: landscape('1790556'), tag: 'Because you liked Blade Runner 2049',
+  },
+  {
+    id: 9, title: 'The Vanishing Point', year: '2024', genres: ['Thriller', 'Mystery'], rating: 8.0, duration: 118,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Focused'],
+    tagline: 'Every road leads somewhere. This one leads back.',
+    overview: 'A driving instructor in the Scottish Highlands picks up a hitchhiker who knows details about a murder that hasn\u2019t happened yet. A claustrophobic, rain-soaked thriller that never lets you look away.',
+    cast: ['Iona Mackay', 'Sebastian Holt', 'Rashid Karimi'], director: 'Alasdair Menzies',
+    poster: portrait('34261761'), backdrop: landscape('7991501'), tag: 'New release',
+  },
+  {
+    id: 10, title: 'Letters from the Front', year: '2023', genres: ['War', 'Drama'], rating: 8.4, duration: 130,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Relaxed'],
+    tagline: 'Some words survive the war. Some don\u2019t.',
+    overview: 'Two sisters exchange letters across occupied France, one in the Resistance and one trying to live a normal life under German rule. A devastating period drama about love, complicity, and the cost of courage.',
+    cast: ['Camille Beaumont', 'Sofie Lindqvist', 'Etienne Garnier'], director: 'Margaux Dubois',
+    poster: portrait('29957555'), backdrop: landscape('7991499'), tag: 'Critically acclaimed',
+  },
+  {
+    id: 11, title: 'The Glasshouse', year: '2024', genres: ['Sci-fi', 'Mystery'], rating: 7.8, duration: 112,
+    media_type: 'movie', category: 'Movies', moods: ['Surprised', 'Focused'],
+    tagline: 'Utopia has a floor plan.',
+    overview: 'A botanist invited to live in a sealed eco-city discovers the air is laced with a compound that erases short-term memory. The longer she stays, the harder it becomes to remember why she wanted to leave.',
+    cast: ['Nadia Petrova', 'Oliver Brandt', 'Joon Lee'], director: 'Hyun-woo Kim',
+    poster: portrait('9116258'), backdrop: landscape('1790556'), tag: 'Because you liked Ex Machina',
+  },
+  {
+    id: 12, title: 'Salt and Fire', year: '2023', genres: ['Drama', 'Romance'], rating: 7.7, duration: 104,
+    media_type: 'movie', category: 'Movies', moods: ['Romantic', 'Relaxed'],
+    tagline: 'You can\u2019t season a life without burning something.',
+    overview: 'A disgraced Michelin-starred chef takes a job at a seaside shack in Portugal and slowly rediscovers her love of cooking through the people she feeds. Warm, sensory, and quietly restorative.',
+    cast: ['Inês Carvalho', 'Tomás Silva', 'Bianca Rossi'], director: 'Carlos Pinto',
+    poster: portrait('7944904'), backdrop: landscape('8271453'), tag: 'Feel-good watch',
+  },
+  {
+    id: 13, title: 'The Hollow Tree', year: '2022', genres: ['Horror', 'Mystery'], rating: 7.5, duration: 94,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Surprised'],
+    tagline: 'The roots go deeper than the town.',
+    overview: 'A family inherits a farmhouse in rural Vermont and discovers the property has been the site of a cycle of disappearances stretching back two centuries. Folk horror with a creeping sense of dread.',
+    cast: ['Rachel Payne', 'Ethan Crowe', 'Lily Abasi'], director: 'Dale Whitmore',
+    poster: portrait('29040219'), backdrop: landscape('7991501'), tag: 'Cult favorite',
+  },
+  {
+    id: 14, title: 'Above the Treeline', year: '2024', genres: ['Adventure', 'Drama'], rating: 8.2, duration: 110,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Relaxed'],
+    tagline: 'The mountain doesn\u2019t care if you make it.',
+    overview: 'A grieving climber attempts a solo ascent of an unclimbed peak in the Karakoram. A visceral, near-wordless film about endurance, beauty, and the line between letting go and holding on.',
+    cast: ['Tashi Norbu', 'Arman Raza'], director: 'Pema Sherpa',
+    poster: portrait('30852683'), backdrop: landscape('2927607'), tag: 'Visually stunning',
+  },
+  {
+    id: 15, title: 'Cold Welcome', year: '2024', genres: ['Crime', 'Thriller'], rating: 7.9, duration: 106,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Focused'],
+    tagline: 'The war never ended. It just moved indoors.',
+    overview: 'A former war correspondent returns to Sarajevo to testify at a war-crimes tribunal and finds the witnesses on her list are dying in staged accidents. A propulsive political thriller.',
+    cast: ['Amra Begic', 'Nikola Vidic', 'Petar Savić'], director: 'Jelena Markovic',
+    poster: portrait('30229234'), backdrop: landscape('7991501'), tag: 'Trending now',
+  },
+  {
+    id: 16, title: 'The Apology', year: '2023', genres: ['Drama'], rating: 8.6, duration: 92,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Relaxed'],
+    tagline: 'Forgiveness is not a feeling. It\u2019s a decision you make every morning.',
+    overview: 'An elderly woman receives an unannounced visitor on the anniversary of her daughter\u2019s disappearance: the man she has always believed was responsible. A chamber-drama built on two extraordinary performances.',
+    cast: ['Helen Aldridge', 'George Sweeney'], director: 'Robin Whitaker',
+    poster: portrait('30743730'), backdrop: landscape('7991499'), tag: 'Award winner',
+  },
+  {
+    id: 17, title: 'Nightswimmer', year: '2023', genres: ['Drama', 'Romance'], rating: 7.6, duration: 98,
+    media_type: 'movie', category: 'Movies', moods: ['Romantic', 'Relaxed'],
+    tagline: 'The river remembers everyone who ever crossed it.',
+    overview: 'A retired swimmer and a riverboat guide meet on the Danube and spend a single summer together before their lives pull them apart. A languid, sun-drenched romance about timing and letting go.',
+    cast: ['Lilla Erdős', 'Dragan Micić'], director: 'Anikó Fehér',
+    poster: portrait('2597901'), backdrop: landscape('8271453'), tag: 'Perfect for tonight',
+  },
+  {
+    id: 18, title: 'Zero Hour', year: '2024', genres: ['Action', 'Thriller'], rating: 7.4, duration: 116,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Surprised'],
+    tagline: 'Sixty minutes. One city. No backup.',
+    overview: 'A bomb-disposal veteran has one hour to defuse twelve devices planted across a metropolis. A breathless, real-time thriller that grabs you in the first minute and doesn\u2019t let go.',
+    cast: ['Idris Achebe', 'Mei Cao', 'Lukas Brandt'], director: 'Sergei Volkov',
+    poster: portrait('10833996'), backdrop: landscape('7991501'), tag: 'Edge of your seat',
+  },
+  {
+    id: 19, title: 'The Conservatory', year: '2022', genres: ['Drama', 'Music'], rating: 8.1, duration: 120,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Romantic'],
+    tagline: 'Talent gets you in. Obsession keeps you there.',
+    overview: 'Three students at an elite music academy push themselves—and each other—to the breaking point in the months before the competition that will define their careers. A intimate, furious chamber piece.',
+    cast: ['Mia Vasquez', 'Kenji Watanabe', 'Olivia Frost'], director: 'Marina Costa',
+    poster: portrait('14797712'), backdrop: landscape('1790556'), tag: 'Critic\u2019s pick',
+  },
+  {
+    id: 20, title: 'The Lighthouse Keeper', year: '2023', genres: ['Drama', 'Mystery'], rating: 7.8, duration: 102,
+    media_type: 'movie', category: 'Movies', moods: ['Relaxed', 'Focused'],
+    tagline: 'The light must never go out.',
+    overview: 'A replacement keeper arrives at an isolated lighthouse and finds his predecessor\u2019s journal filled with increasingly urgent warnings about something in the fog. A moody, atmospheric mystery.',
+    cast: ['Owen Creagh', 'Doris Lally'], director: 'Niamh Brennan',
+    poster: portrait('10480630'), backdrop: landscape('7991499'), tag: 'Slow burn',
+  },
+  {
+    id: 21, title: 'Wildfire Season', year: '2024', genres: ['Drama'], rating: 8.0, duration: 124,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Excited'],
+    tagline: 'Some things don\u2019t burn. They wait.',
+    overview: 'A hotshot firefighter returns to her hometown in Oregon after a season of loss and finds herself leading a crew of volunteers as an unprecedented fire front approaches. A human-scale disaster drama.',
+    cast: ['Sara Whitlock', 'Danny Lin', 'Corey Marsh'], director: 'Trevor Hale',
+    poster: portrait('12126236'), backdrop: landscape('7991501'), tag: 'New release',
+  },
+  {
+    id: 22, title: 'The Auction', year: '2023', genres: ['Comedy', 'Drama'], rating: 7.7, duration: 88,
+    media_type: 'movie', category: 'Movies', moods: ['Relaxed', 'Surprised'],
+    tagline: 'Everything has a price. Not everything should be paid.',
+    overview: 'A failing auction house accidentally sells a painting that doesn\u2019t belong to them and has one weekend to get it back before the buyer notices. A nimble, witty caper with a warm heart.',
+    cast: ['Phoebe Castellan', 'Henry Adeyemi', 'Margot Klein'], director: 'Lea Bernstein',
+    poster: portrait('37796905'), backdrop: landscape('2927607'), tag: 'Feel-good watch',
+  },
+  {
+    id: 23, title: 'The Salt Plain', year: '2024', genres: ['Drama', 'Mystery'], rating: 8.3, duration: 108,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Surprised'],
+    tagline: 'The white stretches farther than anyone remembers.',
+    overview: 'A geologist surveying a Bolivian salt flat finds a settlement that doesn\u2019t appear on any map—and whose residents claim to have been there for thousands of years. A quiet, unsettling mystery.',
+    cast: ['Lucía Quispe', 'Daniel Ferreira', 'Ana Velasco'], director: 'Paolo Mamani',
+    poster: portrait('29823377'), backdrop: landscape('7991501'), tag: 'Hidden gem',
+  },
+  {
+    id: 24, title: 'Second Life', year: '2023', genres: ['Sci-fi', 'Drama'], rating: 7.9, duration: 126,
+    media_type: 'movie', category: 'Movies', moods: ['Focused', 'Romantic'],
+    tagline: 'What if you could attend your own funeral?',
+    overview: 'A terminally ill woman uploads her consciousness to a private simulation and discovers she can watch her family grieve—and intervene in ways she never could in life. A thoughtful, melancholy sci-fi.',
+    cast: ['Rebecca Stone', 'Aman Verma', 'Clara Nunes'], director: 'Yuki Tanaka',
+    poster: portrait('18383829'), backdrop: landscape('1790556'), tag: 'Because you liked Eternal Sunshine',
+  },
+  {
+    id: 25, title: 'The Long Way Home', year: '2022', genres: ['Drama', 'Adventure'], rating: 8.0, duration: 114,
+    media_type: 'movie', category: 'Movies', moods: ['Relaxed', 'Focused'],
+    tagline: 'Some journeys don\u2019t end. They just pause.',
+    overview: 'An elderly man walks across three countries to deliver a letter to the family of a soldier he served with sixty years ago. A road movie about memory, gratitude, and the weight of a promise kept.',
+    cast: ['Wojciech Kowalski', 'Aisha Diallo', 'Marco Bianchi'], director: 'Sofia Mendez',
+    poster: portrait('22624365'), backdrop: landscape('8271453'), tag: 'Tearjerker',
+  },
+  {
+    id: 26, title: 'Fracture', year: '2024', genres: ['Thriller', 'Mystery'], rating: 7.8, duration: 100,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Surprised'],
+    tagline: 'Every break tells a story.',
+    overview: 'A forensic anthropologist is called to examine a skeleton found beneath a new subway tunnel and realizes the bones belong to someone who was reported alive just three weeks ago.',
+    cast: ['Tabitha Owens', 'Mateo Reyes', 'Lina Soto'], director: 'Eli Vasquez',
+    poster: portrait('9100222'), backdrop: landscape('7991501'), tag: 'Trending now',
+  },
+  {
+    id: 27, title: 'The Postcard', year: '2023', genres: ['Romance', 'Drama'], rating: 8.1, duration: 90,
+    media_type: 'movie', category: 'Movies', moods: ['Romantic', 'Relaxed'],
+    tagline: 'Some letters take a lifetime to arrive.',
+    overview: 'A widow cleaning out her attic finds a postcard postmarked 1974 from a man she never met, addressed to her. She sets out to find out who he was—and why he was writing to her before she was born.',
+    cast: ['Beatrice Lund', 'Young: Hugo Renard'], director: 'Margaux Dubois',
+    poster: portrait('1707819'), backdrop: landscape('7991499'), tag: 'Perfect for tonight',
+  },
+  {
+    id: 28, title: 'Runoff', year: '2024', genres: ['Crime', 'Drama'], rating: 7.6, duration: 112,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Focused'],
+    tagline: 'The river takes everything eventually.',
+    overview: 'A environmental investigator in Louisiana discovers a chemical company has been dumping waste into the bayou for decades—and the town has been quietly dying because of it. A slow-burn procedural with teeth.',
+    cast: ['Marcus Thibodaux', 'Celeste Boudreaux', 'Raymond Pratt'], director: 'Ada Linde',
+    poster: portrait('12945533'), backdrop: landscape('2927607'), tag: 'Because you liked Dark Waters',
+  },
+  {
+    id: 29, title: 'The Eighth Day', year: '2023', genres: ['Fantasy', 'Drama'], rating: 8.2, duration: 118,
+    media_type: 'movie', category: 'Movies', moods: ['Surprised', 'Relaxed'],
+    tagline: 'On the eighth day, the world began again.',
+    overview: 'A librarian discovers a book that describes the events of the next day with perfect accuracy. At first she uses it to help people. Then she reads a chapter with her own name in the title.',
+    cast: ['Esther Klein', 'Yousef Amari', 'Greta Wenz'], director: 'Anikó Fehér',
+    poster: portrait('7792274'), backdrop: landscape('8271453'), tag: 'Critic\u2019s pick',
+  },
+  {
+    id: 30, title: 'Undertow', year: '2024', genres: ['Thriller', 'Drama'], rating: 7.7, duration: 108,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Focused'],
+    tagline: 'The current is always stronger than it looks.',
+    overview: 'A marine biologist studying rip currents becomes obsessed with a pattern of drownings off a Cornish village that she believes are connected. A taut, waterlogged thriller with a devastating final act.',
+    cast: ['Imogen Trevelyan', 'Padraig O\u2019Brien', 'Carys Vaughan'], director: 'Niamh Brennan',
+    poster: portrait('11301545'), backdrop: landscape('7991501'), tag: 'New release',
+  },
+  {
+    id: 31, title: 'The Tenant', year: '2023', genres: ['Horror', 'Mystery'], rating: 7.5, duration: 96,
+    media_type: 'movie', category: 'Movies', moods: ['Excited', 'Surprised'],
+    tagline: 'The apartment was a steal. So was the last tenant.',
+    overview: 'A young woman moves into a suspiciously cheap Parisian flat and begins finding the previous tenant\u2019s belongings still warm to the touch. Psychological horror that crawls under your skin.',
+    cast: ['Céleste Roux', 'Mathieu Lefebvre'], director: 'Claude Renard',
+    poster: portrait('28792993'), backdrop: landscape('7991499'), tag: 'Cult favorite',
+  },
+  {
+    id: 32, title: 'Bright Star Falling', year: '2024', genres: ['Drama', 'Music'], rating: 8.4, duration: 122,
+    media_type: 'movie', category: 'Movies', moods: ['Relaxed', 'Romantic'],
+    tagline: 'The world is louder than any single voice.',
+    overview: 'A folk singer on her farewell tour confronts the cost of a life spent on the road, the daughter she barely knows, and the songs she never finished writing. A graceful, bittersweet character study.',
+    cast: ['June Calloway', 'Emmy Calloway', 'Ray Santana'], director: 'Robin Whitaker',
+    poster: portrait('15079054'), backdrop: landscape('1790556'), tag: 'Editor\u2019s pick',
+  },
+
+  // ── SERIES (33–50) ──
+  {
+    id: 33, title: 'The Bureau', year: '2024', genres: ['Crime', 'Drama'], rating: 8.8, duration: 52,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Focused'],
+    tagline: 'Loyalty is a cover story.',
+    overview: 'Inside a European intelligence agency, an analyst discovers one of her colleagues has been living under a stolen identity for fifteen years. A slow-burn espionage thriller where every episode rewires what you thought you knew.',
+    cast: ['Margaux Lefevre', 'Dimitri Sokolov', 'Aaliyah Hassan'], director: 'Claude Renard',
+    poster: portrait('29823377'), backdrop: landscape('7991501'), tag: 'Top rated series',
+  },
+  {
+    id: 34, title: 'Harbor Lights', year: '2023', genres: ['Drama', 'Romance'], rating: 8.0, duration: 45,
+    media_type: 'tv', category: 'Series', moods: ['Romantic', 'Relaxed'],
+    tagline: 'Everyone who docks here is running from something.',
+    overview: 'A bed-and-breakfast owner in a Maine fishing town harbors secrets of her own while taking in drifters, fugitives, and old flames. Warm, character-driven storytelling with an ocean breeze.',
+    cast: ['Dorothy Pine', 'Eli Walker', 'Rosa Castillo'], director: 'Nathan Bright',
+    poster: portrait('4462292'), backdrop: landscape('8271453'), tag: 'Bingeworthy',
+  },
+  {
+    id: 35, title: 'Quantum Drift', year: '2024', genres: ['Sci-fi', 'Thriller'], rating: 8.4, duration: 48,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Surprised'],
+    tagline: 'Every choice splits the world. Someone is collecting the pieces.',
+    overview: 'A physicist discovers she\u2019s flickering between parallel versions of her own life and that a shadow agency is hunting the anomalies she leaves behind. Mind-bending and propulsive.',
+    cast: ['Iris Vaughn', 'Samuel Oyelaran', 'Mei Lin'], director: 'Joon-ho Park',
+    poster: portrait('18383829'), backdrop: landscape('1790556'), tag: 'Trending now',
+  },
+  {
+    id: 36, title: 'The Verdict', year: '2023', genres: ['Legal', 'Drama'], rating: 8.2, duration: 42,
+    media_type: 'tv', category: 'Series', moods: ['Focused'],
+    tagline: 'Justice is never open-and-shut.',
+    overview: 'An idealistic public defender takes on a case that pits her against the city\u2019s most powerful law firm. Sharp courtroom drama with moral weight in every episode.',
+    cast: ['Adaeze Obi', 'Robert Calloway', 'Vivian Park'], director: 'Grace Okoro',
+    poster: portrait('30743730'), backdrop: landscape('7991499'), tag: 'Critically acclaimed',
+  },
+  {
+    id: 37, title: 'Edge of Night', year: '2024', genres: ['Thriller', 'Crime'], rating: 7.8, duration: 50,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Surprised'],
+    tagline: 'The city wakes when the sun goes down.',
+    overview: 'A night-shift paramedic and a homicide detective cross paths on the darkest streets of Lisbon, uncovering a pattern that connects a string of seemingly random emergencies.',
+    cast: ['Tiago Almeida', 'Beatriz Costa', 'Rui Mendes'], director: 'Carlos Pinto',
+    poster: portrait('12126236'), backdrop: landscape('7991501'), tag: 'New season',
+  },
+  {
+    id: 38, title: 'Paper Cities', year: '2023', genres: ['Drama', 'Mystery'], rating: 7.9, duration: 46,
+    media_type: 'tv', category: 'Series', moods: ['Relaxed', 'Focused'],
+    tagline: 'Every city is a story someone wrote about themselves.',
+    overview: 'A travel writer who documents disappearing towns discovers the next village on her list has already vanished from every map. Lyrical and quietly unsettling.',
+    cast: ['Hana Yoshida', 'Oliver Bloom', 'Ines Carvalho'], director: 'Yuki Tanaka',
+    poster: portrait('12945533'), backdrop: landscape('2927607'), tag: 'Hidden gem',
+  },
+  {
+    id: 39, title: 'The Syndicate', year: '2024', genres: ['Crime', 'Thriller'], rating: 8.5, duration: 55,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Focused'],
+    tagline: 'The empire was built on trust. So was its collapse.',
+    overview: 'A sprawling crime family in Rotterdam fractures when the patriarch disappears and three heirs discover the business is built on a single, catastrophic lie. A slow-burn epic with devastating reveals.',
+    cast: ['Sven Bakker', 'Lotte de Vries', 'Joris Visser'], director: 'Thomas Bender',
+    poster: portrait('34261761'), backdrop: landscape('7991501'), tag: 'Top rated series',
+  },
+  {
+    id: 40, title: 'Lighthouse Lane', year: '2023', genres: ['Drama', 'Comedy'], rating: 8.0, duration: 38,
+    media_type: 'tv', category: 'Series', moods: ['Relaxed', 'Romantic'],
+    tagline: 'The neighbors are peculiar. The tea is always on.',
+    overview: 'A burned-out city architect inherits a cottage in a tiny Irish coastal village and finds herself tangled in the lives of its endearingly eccentric residents. A gentle, funny, big-hearted series.',
+    cast: ['Saoirse Byrne', 'Cillian Duffy', 'Mary O\u2019Farrell'], director: 'Niamh Brennan',
+    poster: portrait('1707819'), backdrop: landscape('8271453'), tag: 'Cosy watch',
+  },
+  {
+    id: 41, title: 'Deep State', year: '2024', genres: ['Thriller', 'Drama'], rating: 8.3, duration: 49,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Focused'],
+    tagline: 'The most dangerous briefings are the ones that never happened.',
+    overview: 'A junior analyst stumbles onto a black-budget program that has been running unauthorized operations on domestic soil for a decade. A paranoid, labyrinthine thriller that rewards patience.',
+    cast: ['Olivia Chen', 'Marcus Webb', 'Hassan Karimi'], director: 'Jelena Markovic',
+    poster: portrait('10833996'), backdrop: landscape('7991501'), tag: 'Trending now',
+  },
+  {
+    id: 42, title: 'The Practitioner', year: '2023', genres: ['Drama', 'Mystery'], rating: 8.1, duration: 44,
+    media_type: 'tv', category: 'Series', moods: ['Focused', 'Surprised'],
+    tagline: 'Every patient has a secret. So does she.',
+    overview: 'A therapist in a quiet London borough realizes four of her patients are describing the same man in their sessions—someone she has never met but who seems to know her. A hypnotic, unsettling mystery.',
+    cast: ['Naomi Hart', 'Daniel Frost', 'Priya Raman'], director: 'Robin Whitaker',
+    poster: portrait('9100222'), backdrop: landscape('7991499'), tag: 'Critic\u2019s pick',
+  },
+  {
+    id: 43, title: 'Riverside', year: '2024', genres: ['Drama', 'Romance'], rating: 7.8, duration: 40,
+    media_type: 'tv', category: 'Series', moods: ['Romantic', 'Relaxed'],
+    tagline: 'The water is always moving. So is everyone on it.',
+    overview: 'Three generations of a family running a canal-boat business in Amsterdam navigate love, debt, and a changing city. Warm, layered storytelling with a strong sense of place.',
+    cast: ['Sophie van der Berg', 'Bas Mulder', 'Eva Jansen'], director: 'Anikó Fehér',
+    poster: portrait('4462292'), backdrop: landscape('8271453'), tag: 'Bingeworthy',
+  },
+  {
+    id: 44, title: 'The Cold Room', year: '2023', genres: ['Crime', 'Mystery'], rating: 8.4, duration: 47,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Surprised'],
+    tagline: 'Every case goes cold. Not every case stays dead.',
+    overview: 'A detective reopened-unit specialist in Stockholm takes on the cases everyone else has given up on, using new forensic techniques and a stubborn refusal to accept the obvious. A crisp, moody procedural.',
+    cast: ['Elsa Nystrom', 'Oskar Berg', 'Karin Holm'], director: 'Ingrid Ahlberg',
+    poster: portrait('30229234'), backdrop: landscape('7991501'), tag: 'Top rated series',
+  },
+  {
+    id: 45, title: 'Underground', year: '2024', genres: ['Crime', 'Thriller'], rating: 8.0, duration: 52,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Focused'],
+    tagline: 'The tunnel goes in two directions. So does everyone in it.',
+    overview: 'A customs officer at the Channel Tunnel discovers a smuggling network that extends into her own department. A tense, morally complex thriller about the thin line between enforcement and complicity.',
+    cast: ['Zara Osei', 'Luc Moreau', 'Dan Price'], director: 'Sergei Volkov',
+    poster: portrait('12126236'), backdrop: landscape('7991501'), tag: 'New season',
+  },
+  {
+    id: 46, title: 'The Atelier', year: '2023', genres: ['Drama'], rating: 7.9, duration: 43,
+    media_type: 'tv', category: 'Series', moods: ['Relaxed', 'Romantic'],
+    tagline: 'Every stitch is a decision you can\u2019t undo.',
+    overview: 'A young designer joins a legendary Parisian fashion house on the brink of collapse and must navigate creative ambition, institutional memory, and a mentor who refuses to let go. Sumptuous and intimate.',
+    cast: ['Margot Klein', 'Étienne Roux', 'Sienna Park'], director: 'Marina Costa',
+    poster: portrait('14797712'), backdrop: landscape('1790556'), tag: 'Visually stunning',
+  },
+  {
+    id: 47, title: 'Fault Lines', year: '2024', genres: ['Drama', 'Thriller'], rating: 8.2, duration: 46,
+    media_type: 'tv', category: 'Series', moods: ['Excited', 'Surprised'],
+    tagline: 'The ground is always moving. So are the people standing on it.',
+    overview: 'A seismologist in Tokyo discovers a pattern of micro-quakes that doesn\u2019t match any known geological model—and seems to be accelerating toward a catastrophe no one will believe is coming.',
+    cast: ['Hana Yoshida', 'Kenji Watanabe', 'Olivia Frost'], director: 'Joon-ho Park',
+    poster: portrait('18383829'), backdrop: landscape('7991501'), tag: 'Trending now',
+  },
+  {
+    id: 48, title: 'The Reading Group', year: '2023', genres: ['Drama', 'Comedy'], rating: 7.7, duration: 35,
+    media_type: 'tv', category: 'Series', moods: ['Relaxed', 'Romantic'],
+    tagline: 'They came for the books. They stayed for each other.',
+    overview: 'Five strangers in a small English town form a book club that becomes the anchor of their lives through illness, divorce, new love, and old secrets. A big-hearted, witty ensemble drama.',
+    cast: ['Penelope Hale', 'Joe Warrington', 'Mei Cao', 'Lukas Brandt'], director: 'Nathan Bright',
+    poster: portrait('7944904'), backdrop: landscape('7991499'), tag: 'Cosy watch',
+  },
+  {
+    id: 49, title: 'Black Channel', year: '2024', genres: ['Sci-fi', 'Mystery'], rating: 8.1, duration: 50,
+    media_type: 'tv', category: 'Series', moods: ['Surprised', 'Focused'],
+    tagline: 'The signal is always broadcasting. The question is who is listening.',
+    overview: 'A pirate radio operator in a near-future London picks up a transmission from a ship that disappeared in 1944. The more she investigates, the more the city around her starts to change in ways no one else notices.',
+    cast: ['Rebecca Stone', 'Aman Verma', 'Clara Nunes'], director: 'Hyun-woo Kim',
+    poster: portrait('15079054'), backdrop: landscape('1790556'), tag: 'Because you liked Severance',
+  },
+  {
+    id: 50, title: 'The Inheritance', year: '2023', genres: ['Drama', 'Mystery'], rating: 8.3, duration: 48,
+    media_type: 'tv', category: 'Series', moods: ['Focused', 'Surprised'],
+    tagline: 'The will was read. The reading was not the end.',
+    overview: 'Four siblings gather at their grandfather\u2019s vineyard to hear his will and discover he has left them not the estate but a puzzle—and the vineyard goes to whoever solves it first. A twisty, character-driven mystery.',
+    cast: ['Lucia Conti', 'Enzo Conti', 'Valeria Conti', 'Paolo Conti'], director: 'Paolo Mamani',
+    poster: portrait('29823377'), backdrop: landscape('7991499'), tag: 'Bingeworthy',
+  },
+];
+
+export function fitsDuration(movie: Movie, duration: Duration): boolean {
+  const mins = movie.duration;
+  switch (duration) {
+    case 'Under 30 min': return mins < 30;
+    case '30–60 min': return mins >= 30 && mins <= 60;
+    case '1–2 hours': return mins > 60 && mins <= 120;
+    case '2+ hours': return mins > 120;
+    default: return true;
+  }
+}
+
+export function trailerUrl(movie: Movie): string {
+  const query = encodeURIComponent(`${movie.title} ${movie.year} official trailer`);
+  return `https://www.youtube.com/results?search_query=${query}`;
+}
+
+export function formatDuration(mins: number): string {
+  if (mins < 60) return `${mins}m`;
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return m === 0 ? `${h}h` : `${h}h ${m}m`;
+}
